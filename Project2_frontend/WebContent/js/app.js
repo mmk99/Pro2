@@ -12,6 +12,21 @@ app.config(function($routeProvider){
 	.when('/home',{
 		templateUrl:'_home/home.html'
 	})
+	.when('/profilepic',{
+		templateUrl:'_user/profilepic.html'
+	})
+    .when('/edituser',{
+    	templateUrl:'_user/edituserform.html',
+    	controller:'EditController'
+    })
+    .when('/addJob',{
+    	templateUrl:'_job/jobform.html',
+    	controller:'JobController'
+    })
+    .when('/getAllJobs',{
+    	templateUrl:'_job/getjobtitles.html',
+    	controller:'JobController'
+    })
 })
 app.run(function($rootScope,$cookieStore,UserService,$location){
 	console.log('entering run method ')
