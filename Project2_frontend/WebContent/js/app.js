@@ -27,6 +27,30 @@ app.config(function($routeProvider){
     	templateUrl:'_job/getjobtitles.html',
     	controller:'JobController'
     })
+    .when('/addPost',{
+    	templateUrl:'_blog/blogForm.html',
+    	controller:'BlogController'
+    })
+    .when('/getAllBlogs',{
+    	templateUrl:'_blog/getBlogTitles.html',
+    	controller:'BlogController'
+    })
+    .when('/getBlogDetail/:id',{
+    	templateUrl:'_blog/getBlogDetail.html',
+    	controller:'BlogDetailController'
+    })
+    .when('/getBlogForApproval/:id',{
+    	templateUrl:'_blog/getBlogForApproval.html',
+    	controller:'BlogDetailController'
+    })
+    .when('/getAllUsers',{
+    	templateUrl:'_friend/userslist.html',
+    	controller:'FriendController'
+    })
+    .when('/pendingRequests',{
+    	templateUrl:'_friend/pendingRequests.html',
+    	controller:'FriendController'
+    })
 })
 app.run(function($rootScope,$cookieStore,UserService,$location){
 	console.log('entering run method ')

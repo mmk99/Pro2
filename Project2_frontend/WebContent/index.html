@@ -19,44 +19,76 @@
 
 	<header>
 		<nav class="navbar navbar-default">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/">Welcome</a>
-				</div>
+            
+           <div class="container-fluid">
+		<button type="button" class="navbar-toggle collapsed" 
+   data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Welcome</a>
+                </div>
+<div class="collapse navbar-collapse" id="collapse-example">
 
 				<ul class="nav navbar-nav ">
-					<li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
-					<li><a href=""><i class="fa fa-shield"></i> About Us</a></li>
-					<li><a href="#register" ng-hide="currentUser.username">Register</a></li>
-					<li><a href="#login" ng-hide="currentUser.username">login</a></li>
-					<li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
-					<li><a href="#profilepic" ng-show="currentUser.username"><img
-								src="http://localhost:8089/project_backend/getimage/{{currentUser.username}}"
-								width="30px" height="30px" class="img-rounded">Upload Profile Pic</a></li>
-					<li><a href="#edituser" ng-show="currentUser.username"><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
-					
-					<ul class="nav navbar-nav">
-				<li class="dropdown" >
-                     <a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.username">
-                     Job details<b class="caret"></b></a>
+                    <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href=""><i class="fa fa-shield"></i> About Us</a></li>
+                    <li><a href="#register" ng-hide="currentUser.username">Register</a></li>
+                    <li><a href="#login" ng-hide="currentUser.username">Sign in</a>
+                    
+                    <li><a href="#edituser" ng-show="currentUser.username"><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
+                   
+                   
+				
+				<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Job details<b
+							class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="#/getAllJobs"> View Job Titles</a></li>
-							<li><a href="#/postJob" 
-			                    ng-show="currentUser.role=='ADMIN'">Post Job</a></li>
-						</ul>
+							<li><a href="#/getAllJobs"> View Job</a></li>
+							<li><a href="#/addJob" ng-show="currentUser.role=='ADMIN'">Post Job</a></li>
+						</ul></li>
+				 
+				 
+	             <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Blog <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/getAllBlogs">view all blogs</a></li>
+							<li><a href="#/addPost">Post Blog</a></li>
+						</ul></li>
+                      <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Friend  <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/getAllUsers">view all users</a></li>
+							<li><a href="#/pendingRequests">Pending Requests</a></li>
+						</ul></li>		
+						
+                 </ul>
+                  <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
+                 <ul class="nav navbar-nav">
+			          <li  ng-show="currentUser.username">
+						<a href="#/profilepic" >Upload Picture</a>
 					</li>
 				</ul>
-					
-					<li><a href="" ng-click="logout()"
-						ng-show="currentUser.username">logout</a></li>
+				<ul class="nav navbar-nav">
+				    <li ng-show="currentUser.username">
+				    <img src="http://localhost:8089/project_backend/getimage/{{currentUser.username}}" alt="upload Picture" width="5%" height="5%" class="img-rounded"></a></li>
+				 </ul>
+				 <ul class="nav navbar-nav navbar-right">	
+					<li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
 				</ul>
          
 			</div>
+			</div>
 		</nav>
 	</header>
-	<div class="container">
+	
 		<div ng-view></div>
-	</div>
+	
 </body>
 
 <!-- Angular JS module -->
@@ -72,12 +104,22 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
 <script type="text/javascript"
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="_user/usercontroller.js"></script>
 <script type="text/javascript" src="_user/userservice.js"></script>
 <script type="text/javascript" src="_user/editcontroller.js"></script>
+
 <script type="text/javascript" src="_job/jobcontroller.js"></script>
 <script type="text/javascript" src="_job/jobservice.js"></script>
+
+<script type="text/javascript" src="_blog/blogcontroller.js"></script>
+<script type="text/javascript" src="_blog/blogservice.js"></script>
+<script type="text/javascript" src="_blog/blogdetailcontroller.js"></script>
+
+<script type="text/javascript" src="_friend/friendcontroller.js"></script>
+<script type="text/javascript" src="_friend/friendservice.js"></script>
 </html>

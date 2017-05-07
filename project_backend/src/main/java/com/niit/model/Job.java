@@ -73,7 +73,7 @@ public class Job {
 		this.skillsRequired = skillsRequired;
 	}
 	
-	 public boolean getActive() {
+	 public boolean isActive() {
 		return active;
 	}
 	public void setActive(boolean active) {

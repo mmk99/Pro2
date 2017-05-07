@@ -8,22 +8,27 @@
 <table>
 <tr ng-repeat="job in jobs">
 
-<td><a href="" ng-click=jobDetail(job.id)>{{job.jobTitle}}</a></td>
+<td ng-if="currentUser.role=='Student' || currentUser.role=='Employee' || currentUser.role=='Alumini' "
+
+ng-show="job.active">{{job.jobTitle}}</td>
+
+<td ng-if="currentUser.role=='ADMIN'">{{job.jobTitle}}</td>
 </tr>
 
 </table>
-<div ng-show="showJobDetails">
-<b>Description</b> : {{job.jobDescription}}<br>
+
+Description : {{job.jobDescription}}<br>
 <b>Skills Required</b> :{{job.skillsRequired}}<br>
 <b>location</b>:{{job.location}}<br>
 <b>Years Of Experience</b>{{job.yrsOfExp}}<br>
 <b>Company</b>{{job.company}}<br>
 <b>Posted On</b>{{job.postedOn | date:'yyyy:MM:dd'}}<br>
 <b>Skills Required</b>{{job.skillsRequired}}<br>
-<b ng-show="currentUser.role=='Admin'">Active:</b>
-<b><ng-if="job.active">Yes</b><br>
-<b><ng-if="!job.active">No</b><br>
-</div>
-<a href="#home">Home Page</a>
+<b ng-show="currentUser.role=='ADMIN'">Active:</b>
+<b ng-if="job.active">YES</b>
+<b ng-if="!job.active">NO</b>
+
+
+Home Page
 </body>
 </html>
