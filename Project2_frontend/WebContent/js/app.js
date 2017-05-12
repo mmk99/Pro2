@@ -24,7 +24,7 @@ app.config(function($routeProvider){
     	controller:'JobController'
     })
     .when('/getAllJobs',{
-    	templateUrl:'_job/getjobtitles.html',
+    	templateUrl:'_job/jobtitles.html',
     	controller:'JobController'
     })
     .when('/addPost',{
@@ -49,6 +49,10 @@ app.config(function($routeProvider){
     })
     .when('/pendingRequests',{
     	templateUrl:'_friend/pendingRequests.html',
+    	controller:'FriendController'
+    })
+    .when('/listoffriends',{
+    	templateUrl:'_friend/friendslist.html',
     	controller:'FriendController'
     })
 })

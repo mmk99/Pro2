@@ -9,14 +9,14 @@
 <table class="table table-striped">
 <tr ng-repeat="p in pendingLists">
 <td>
-{{p.from>
+{{p.from}}
 </td>
 <td>
-<a href="" ng-click="" class="btn btn-xs btn-default">Accept</a>
+<a href="" ng-click="updatependingrequest(p.from,'A')" class="btn btn-xs btn-default">Accept</a>
 
 </td>
 <td>
-<a href="" ng-click="" class="btn btn-xs btn-default">Deny</a>
+<a href="" ng-click="updatependingrequest(p.from,'D')" class="btn btn-xs btn-default">Deny</a>
 </td>
 </tr>
 </table>

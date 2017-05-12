@@ -65,10 +65,13 @@
 						<ul class="dropdown-menu">
 							<li><a href="#/getAllUsers">view all users</a></li>
 							<li><a href="#/pendingRequests">Pending Requests</a></li>
+							<li><a href="#/listoffriends">List of Friends</a></li>
 						</ul></li>		
 						
                  </ul>
-                  <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
+                 <ul class="nav navbar-nav">
+                  <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a></li>
+                  </ul>
                  <ul class="nav navbar-nav">
 			          <li  ng-show="currentUser.username">
 						<a href="#/profilepic" >Upload Picture</a>
@@ -76,7 +79,10 @@
 				</ul>
 				<ul class="nav navbar-nav">
 				    <li ng-show="currentUser.username">
-				    <img src="http://localhost:8089/project_backend/getimage/{{currentUser.username}}" alt="upload Picture" width="5%" height="5%" class="img-rounded"></a></li>
+				    <img src="http://localhost:8089/project_backend/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
+				 </ul>
+				 <ul class="nav navbar-nav">
+				 <li><a href="#chat" ng-show="currentUser.username">chat </a></li>
 				 </ul>
 				 <ul class="nav navbar-nav navbar-right">	
 					<li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
@@ -122,4 +128,12 @@
 
 <script type="text/javascript" src="_friend/friendcontroller.js"></script>
 <script type="text/javascript" src="_friend/friendservice.js"></script>
+
+<script src="js/sockjs/sockjs.js"></script>
+<script src="js/stomp/dist/stomp.js"></script>
+
+<script type="text/javascript" src="_chat/chatCtrl.js"></script>
+<script type="text/javascript" src="_chat/chatservice.js"></script>
+
+
 </html>
